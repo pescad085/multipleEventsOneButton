@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Tasking in JavaScript</title>
+</head>
+<body>
+    <h1 id="myH1">MultiTasking</h1>
+    <button id="doThings">
+        Do Things
+    </button>
+
+    <script>
+        const myButton = document.getElementById("doThings");
+        const myH1 = document.getElementById("myH1");
+        
+        myButton.addEventListener("click", doThings);
+        let clickCounts = 0;
+
+        const actions = [changeFont, changeFont40, changeFont80 ];
+        function doThings() {
+                  if( clickCounts >= actions.length )  {  
+                         clickCounts = 0;
+                  }   
+                  actions[clickCounts]();
+                  clickCounts++;
+        }
+        function changeFont() {
+            myH1.style.fontSize = "40px";
+        }
+        function changeFont40() {
+            myH1.style.fontSize = "60px";
+        }
+        function changeFont80() {
+            myH1.style.fontSize = "80px";
+        }
+
+    </script>
+</body>
+</html>
